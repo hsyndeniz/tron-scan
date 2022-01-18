@@ -232,7 +232,7 @@
         },
 
         mounted() {
-            let api = "https://api.ideachaincoin.com";
+            let api = "https://plutoapi.ideachaincoin.com";
 
             const tronWeb = new TronWeb({
                     fullHost: api

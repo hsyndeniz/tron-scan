@@ -121,11 +121,11 @@
                             }
                         }
                         
-                        axios.get('https://api.ideachaincoin.com/wallet/getnowblock')
+                        axios.get('https://plutoapi.ideachaincoin.com/wallet/getnowblock')
                         .then(response => {
                             const latestBlock = response.data.block_header.raw_data.number;
                             
-                            axios.post('https://api.ideachaincoin.com/wallet/getblockbylimitnext', {"startNum": latestBlock - 100,"endNum": latestBlock})
+                            axios.post('https://plutoapi.ideachaincoin.com/wallet/getblockbylimitnext', {"startNum": latestBlock - 100,"endNum": latestBlock})
                             .then(response => {
                                 console.log("getblockbylimitnext");
                                 console.log(response.data);
@@ -210,11 +210,11 @@
             fetchMore() {
                 console.log("fetchMore");
 
-                axios.get('https://api.ideachaincoin.com/wallet/getnowblock')
+                axios.get('https://plutoapi.ideachaincoin.com/wallet/getnowblock')
                 .then(response => {
                     const latestBlock = response.data.block_header.raw_data.number;
                     
-                    axios.post('https://api.ideachaincoin.com/wallet/getblockbylimitnext', {"startNum": latestBlock - 70,"endNum": latestBlock - 50 })
+                    axios.post('https://plutoapi.ideachaincoin.com/wallet/getblockbylimitnext', {"startNum": latestBlock - 70,"endNum": latestBlock - 50 })
                     .then(response => {
                         console.log("getblockbylimitnext");
                         console.log(response.data);

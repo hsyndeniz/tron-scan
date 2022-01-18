@@ -84,10 +84,10 @@
         },
 
         mounted() {
-            //axios.get('https://api.ideachaincoin.com/wallet/gettransactioncountbyblocknum', { num: 3965 })
+            //axios.get('https://plutoapi.ideachaincoin.com/wallet/gettransactioncountbyblocknum', { num: 3965 })
             // getchainparameters
             axios
-                .get('https://api.ideachaincoin.com/wallet/getnowblock')
+                .get('https://plutoapi.ideachaincoin.com/wallet/getnowblock')
                 .then(response => {
                     console.log("getnowblock");
                     this.nowBlockNum = response.data.block_header.raw_data.number;
@@ -97,7 +97,7 @@
                     console.warn(this.nowBlockNum);
                 });
                 
-            axios.get('https://api.ideachaincoin.com/wallet/getnodeinfo')
+            axios.get('https://plutoapi.ideachaincoin.com/wallet/getnodeinfo')
                 .then(response => {
                     console.log("getnodeinfo");
                     let _nodeInfo = response.data;

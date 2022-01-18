@@ -87,7 +87,7 @@ export default {
             console.log('get dItems');
 
             axios
-                .get('https://api.ideachaincoin.com/wallet/getnowblock')
+                .get('https://plutoapi.ideachaincoin.com/wallet/getnowblock')
                 .then(response => {
                     console.log("getnowblock2");
                     let b = {
