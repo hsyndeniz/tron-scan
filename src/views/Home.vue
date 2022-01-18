@@ -14,7 +14,6 @@
                         <div class="num">
                             <animated-number
                                 :value="nowBlockNum"
-                                :formatValue="formatNum"
                                 :duration="numAnimationDuration"
                             />
                         </div>
@@ -56,6 +55,7 @@
     import {pollingMixin} from "@/mixins/polling.js";
     import {formatNumberByLocale} from "@/filters.js";
     import axios from "axios";
+import { formatHexToInt } from '../filters';
 
     export default {
         mixins: [pollingMixin],
@@ -84,20 +84,21 @@
         },
 
         mounted() {
-            //axios.get('https://plutoapi.ideachaincoin.com/wallet/gettransactioncountbyblocknum', { num: 3965 })
+            //axios.get('https://api.ideachaincoin.com/wallet/gettransactioncountbyblocknum', { num: 3965 })
             // getchainparameters
             axios
-                .get('https://plutoapi.ideachaincoin.com/wallet/getnowblock')
+                .get('https://api.ideachaincoin.com/wallet/getnowblock')
                 .then(response => {
                     console.log("getnowblock");
-                    this.nowBlockNum = response.data.block_header.raw_data.number;
+                    this.nowBlockNum = formatHexToInt(response.data.block_header.raw_data.number);
                     let blocks = [response.data.block_header.raw_data];
+                    blocks[0].number = this.nowBlockNum;
                     this.nowBlock = blocks;
                     console.warn(this.nowBlock);
                     console.warn(this.nowBlockNum);
                 });
                 
-            axios.get('https://plutoapi.ideachaincoin.com/wallet/getnodeinfo')
+            axios.get('https://api.ideachaincoin.com/wallet/getnodeinfo')
                 .then(response => {
                     console.log("getnodeinfo");
                     let _nodeInfo = response.data;

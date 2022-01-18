@@ -157,7 +157,7 @@ import axios from 'axios';
         },
 
         mounted() {
-            axios.post('https://plutoapi.ideachaincoin.com/wallet/getblockbynum', { num: this.id })
+            axios.post('https://api.ideachaincoin.com/wallet/getblockbynum', { num: this.id })
                 .then(response => {
                     console.log("getblockbynum");
                     console.log(response);

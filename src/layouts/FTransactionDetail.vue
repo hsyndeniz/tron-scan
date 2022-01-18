@@ -145,7 +145,7 @@
         mounted() {
             let _transaction;
             let _transactionInfo;
-            let host = "https://plutoapi.ideachaincoin.com";
+            let host = "https://api.ideachaincoin.com";
 
             axios.post(`${host}/wallet/gettransactionbyid`, { value: this.id })
                 .then(response => {

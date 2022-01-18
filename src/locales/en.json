@@ -46,6 +46,10 @@
         {
             "url": "/blocks",
             "title": "Blocks"
+        },
+        {
+            "url": "#",
+            "title": "Wallet"
         }
     ],
 

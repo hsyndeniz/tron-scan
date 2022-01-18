@@ -33,7 +33,7 @@ export function FTMToUSD(_value, _tokenPrice = 0.002) {
  */
 export function getTypeByStr(_str) {
 
-    let api = "https://plutoapi.ideachaincoin.com";
+    let api = "https://api.ideachaincoin.com";
     const tronWeb = new TronWeb({ fullHost: api });
 
     let type = '';

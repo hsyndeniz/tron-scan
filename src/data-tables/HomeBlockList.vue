@@ -49,6 +49,7 @@ import {WEIToFTM} from "@/utils/transactions.js";
 import {timestampToDate} from "@/filters.js";
 import {pollingMixin} from "@/mixins/polling.js";
 import axios from "axios";
+import { formatHexToInt } from '../filters';
 
 export default {
     name: "HomeBlockList",
@@ -87,12 +88,12 @@ export default {
             console.log('get dItems');
 
             axios
-                .get('https://plutoapi.ideachaincoin.com/wallet/getnowblock')
+                .get('https://api.ideachaincoin.com/wallet/getnowblock')
                 .then(response => {
                     console.log("getnowblock2");
                     let b = {
                         "hash": response.data.block_header.raw_data.hash,
-                        "number": response.data.block_header.raw_data.number.toString(16),
+                        "number": formatHexToInt(response.data.block_header.raw_data.number),
                         "timestamp": response.data.block_header.raw_data.timestamp,
                         "transactionCount": 0,
                         "gasUsed": 0,

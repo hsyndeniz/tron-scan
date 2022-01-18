@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col align-center-sm"><f-social-media-links></f-social-media-links></div>
                 <div class="col align-center-sm align-end">
-                    <a href="#" target="_blank" rel="nofollow">©2021 IdeaChain</a>
+                    <a href="https://www.ideachaincoin.com" target="_blank" rel="nofollow">©2021 IdeaChain</a>
                 </div>
             </div>
         </div>
