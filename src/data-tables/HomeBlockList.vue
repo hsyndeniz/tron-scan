@@ -49,7 +49,6 @@ import {WEIToFTM} from "@/utils/transactions.js";
 import {timestampToDate} from "@/filters.js";
 import {pollingMixin} from "@/mixins/polling.js";
 import axios from "axios";
-import { formatHexToInt } from '../filters';
 
 export default {
     name: "HomeBlockList",
@@ -93,7 +92,7 @@ export default {
                     console.log("getnowblock2");
                     let b = {
                         "hash": response.data.block_header.raw_data.hash,
-                        "number": formatHexToInt(response.data.block_header.raw_data.number),
+                        "number": response.data.block_header.raw_data.number.toString(16),
                         "timestamp": response.data.block_header.raw_data.timestamp,
                         "transactionCount": 0,
                         "gasUsed": 0,

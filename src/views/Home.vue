@@ -14,6 +14,7 @@
                         <div class="num">
                             <animated-number
                                 :value="nowBlockNum"
+                                :formatValue="formatNum"
                                 :duration="numAnimationDuration"
                             />
                         </div>
@@ -55,7 +56,6 @@
     import {pollingMixin} from "@/mixins/polling.js";
     import {formatNumberByLocale} from "@/filters.js";
     import axios from "axios";
-import { formatHexToInt } from '../filters';
 
     export default {
         mixins: [pollingMixin],
@@ -90,9 +90,8 @@ import { formatHexToInt } from '../filters';
                 .get('https://api.ideachaincoin.com/wallet/getnowblock')
                 .then(response => {
                     console.log("getnowblock");
-                    this.nowBlockNum = formatHexToInt(response.data.block_header.raw_data.number);
+                    this.nowBlockNum = response.data.block_header.raw_data.number;
                     let blocks = [response.data.block_header.raw_data];
-                    blocks[0].number = this.nowBlockNum;
                     this.nowBlock = blocks;
                     console.warn(this.nowBlock);
                     console.warn(this.nowBlockNum);
